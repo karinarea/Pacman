@@ -1,6 +1,8 @@
 var pacman, pacmanLeft, pacmanRight, pacmanUp, pacmanDown, pacmanWhole;
 var wallGroup;
 var score = 0;
+var cherryimg;
+var fruit2;
 //sides
 var wall1, wall2,wall3, wall4,wall5,wall6,wall7,wall8,wall9,wall10, wall11,wall12,wall13,wall14,wall15,wall16,wall17,wall18;
 //cage
@@ -19,8 +21,8 @@ wall88, wall89, wall90, wall91, wall92, wall93, wall94, wall95, wall96, wall97, 
 var gameState = "play";
 var lives = 3;
 var heart1, heart2, heart3, heartGroup;
-var ghostGroup, ghost1, ghost2, ghost3, ghost4;
-
+var ghostGroup, ghost1, ghost2, ghost3, ghost4, redGhostLeft, redGhostRight, redGhostUp, redGhostDown, blueGhostLeft, blueGhostRight, blueGhostUp, blueGhostDown;
+var fruit1;
 var dotGroup, dot1, dot2,dot3, dot4,dot5,dot6,dot7,dot8,dot9,dot10, dot11,dot12,dot13,dot14,dot15,dot16,dot17,dot18,dot19, dot20,dot21,dot22,dot23,dot24, dot25, dot26, dot27, dot28, dot29, dot30, dot31, dot32, dot33, dot34, dot35, dot36, dot37, dot38, dot39, dot40, dot41, dot42, dot43, dot44, dot45, dot46, dot47, dot48, dot49, dot50, dot51, dot52, dot53, dot54, dot55, dot56, dot57, dot58, dot59, dot60, dot61, dot62, dot63, dot64, dot65, dot66, dot67, dot68, dot69, dot70, dot71, dot72, dot73, dot74, dot75, dot76, dot77, dot78, dot79, dot80, dot81, dot82, dot83, dot84, dot85, dot86, dot87, dot88, dot89, dot90, dot91, dot92, dot93, dot94, dot95, dot96, dot97, dot98, dot99, dot100, dot101, dot102, dot103, dot104, dot105,
 dot106, dot107, dot108, dot109, dot110, dot111, dot112, dot113, dot115, dot116, dot117, dot118, dot119, dot120, dot121, dot122;
 
@@ -30,10 +32,33 @@ function preload() {
   pacmanRight = loadAnimation("Images/right1.png", "Images/right2.png", "Images/right3.png");
   pacmanUp = loadAnimation("Images/up1.png", "Images/up2.png", "Images/up3.png");
   pacmanWhole = loadAnimation("Images/down1.png");
+
+  redGhostLeft = loadImage("Images/redLeft.png");
+  redGhostRight = loadImage("Images/redRight.png");
+  redGhostUp = loadImage("Images/redUp.png");
+  redGhostDown = loadImage("Images/redDown.png");
+
+  blueGhostLeft = loadImage("Images/blueLeft.png");
+  blueGhostRight = loadImage("Images/blueRight.png");
+  blueGhostUp = loadImage("Images/blueUp.png");
+  blueGhostDown = loadImage("Images/blueDown.png");
+
+  pinkGhostLeft = loadImage("Images/pinkLeft.png");
+  pinkGhostRight = loadImage("Images/pinkRight.png");
+  pinkGhostUp = loadImage("Images/pinkUp.png");
+  pinkGhostDown = loadImage("Images/pinkDown.png");
+
+  orangeGhostLeft = loadImage("Images/orangeLeft.png");
+  orangeGhostRight = loadImage("Images/orangeRight.png");
+  orangeGhostUp = loadImage("Images/orangeUp.png");
+  orangeGhostDown = loadImage("Images/orangeDown.png");
+  cherryimg = loadImage("Images/download.png");
+
+
 }
 function setup() {
   createCanvas(1200,1000);
-  pacman = createSprite(800,750,100,100);
+  pacman = createSprite(600,725,100,100);
   pacman.scale = 1.3;
   
   pacman.addAnimation("whole", pacmanWhole);
@@ -53,7 +78,10 @@ function setup() {
   createHearts();
 
   dotGroup = new Group();
+ 
   createDots();
+   fruitGroup = new Group();
+   createFruit();
 }
 
 function draw() {
@@ -80,6 +108,14 @@ function draw() {
         score = score + 10;
       }
     }
+
+     
+    for(var i = 0; i<fruitGroup.length; i++){
+      if(fruitGroup.get(i).isTouching(pacman)){
+        fruitGroup.get(i).destroy();
+        score = score + 50;
+      }
+    }
     
     
     if(pacman.isTouching(ghostGroup)){
@@ -99,7 +135,10 @@ function draw() {
   
   
 
-
+  ghost1.moveBlueGhost();
+  ghost2.moveRedGhost();
+  ghost3.movePinkGhost();
+  ghost4.moveOrangeGhost();
   //console.log(lives);
   
   drawSprites();

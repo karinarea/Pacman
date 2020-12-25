@@ -30,25 +30,35 @@ function createWalls(){
     
     //top obsticles 
     wall25 = new Wall(600,150,10,100);
-    wall26 = new Wall(200,185,10,80);
-    wall27 = new Wall(270,185,10,80);
+    wall26 = new Wall(200,205,10,100);
+    wall27 = new Wall(270,205,10,100);
     wall28 = new Wall(235,150,80,10);
-    wall29 = new Wall(235,220,80,10);
+    wall29 = new Wall(235,250,80,10);
+    //box middle left
+    wall88 = new Wall(325,200,10,110);
+    wall89 = new Wall(400,205,10,100);
+    wall90 = new Wall(365,150,80,10);
+    wall91 = new Wall(365,250,80,10);
     //box2
-    wall30 = new Wall(450,185,10,80);
-    wall31 = new Wall(520,185,10,80);
+    wall30 = new Wall(450,205,10,100);
+    wall31 = new Wall(520,205,10,100);
     wall32 = new Wall(485,150,80,10);
-    wall33 = new Wall(485,220,80,10);
+    wall33 = new Wall(485,250,80,10);
     //box3
-    wall34 = new Wall(675,185,10,80);
-    wall35 = new Wall(755,185,10,80);
+    wall34 = new Wall(675,205,10,100);
+    wall35 = new Wall(755,205,10,100);
     wall36 = new Wall(720,150,80,10);
-    wall37 = new Wall(720,220,80,10);
+    wall37 = new Wall(720,250,80,10);
+    //box middle right
+    wall92 = new Wall(800,205,10,100);
+    wall93 = new Wall(875,205,10,100);
+    wall94 = new Wall(840,150,80,10);
+    wall95 = new Wall(840,250,80,10);
     //box4
-    wall38 = new Wall(925,185,10,80);
-    wall39 = new Wall(995,185,10,80);
+    wall38 = new Wall(925,205,10,100);
+    wall39 = new Wall(995,205,10,100);
     wall40 = new Wall(960,150,80,10);
-    wall41 = new Wall(960,220,80,10);
+    wall41 = new Wall(960,250,80,10);
     //middle box
     wall42 = new Wall(600,300,200,10);
     wall43 = new Wall(600,375,200,10);
@@ -110,21 +120,28 @@ function createGhosts(){
     ghost2 = new Ghost(580,500,20,20);
     ghost3 = new Ghost(530,500,20,20);
     ghost4 = new Ghost(675,500,20,20);
-}
-function moveGhosts(){
-  var selfDirection;
-  if(ghost1.ghost.velocityX<0){
-    selfDirection = "left";
-  }
-  else if(ghost1.ghost.velocityX>0){
-    selfDirection = "right";
-  }
-  else if(ghost1.ghost.velocityY<0){
-    selfDirection = "up";
-  }
-  else if(ghost1.ghost.velocityY>0){
-    selfDirection = "down";
-  }
+
+    //redGhost
+   
+    ghost1.ghost.velocityX = 5;
+    ghost1.ghost.debug = true;
+    ghost1.ghost.scale = 0.25;
+    ghost1.ghost.setCollider("rectangle", 0, 0, 50, 50);
+
+    ghost2.ghost.velocityX = 5;
+    ghost2.ghost.debug = true;
+    ghost2.ghost.scale = 0.25;
+    ghost2.ghost.setCollider("rectangle", 0, 0, 50, 50);
+
+    ghost3.ghost.velocityX = 5;
+    ghost3.ghost.debug = true;
+    ghost3.ghost.scale = 0.25;
+    ghost3.ghost.setCollider("rectangle", 0, 0, 50, 50);
+
+    ghost4.ghost.velocityY = 5;
+    ghost4.ghost.debug = true;
+    ghost4.ghost.scale = 0.25;
+    ghost4.ghost.setCollider("rectangle", 0, 0, 50, 50);
 }
 function createHearts(){
     heart1 = createSprite(1170, 30, 20,20);
@@ -141,7 +158,11 @@ function createHearts(){
 
     
 }
-
+function createFruit(){
+  fruit1 = new Fruit(425,775);
+  fruit2 = new Fruit(775,775);
+  fruit3 = new Fruit(600,225);
+}
 function createDots(){
   //Top left  (top to bottom)
   dot1 = new Dots(175,125);
@@ -332,11 +353,207 @@ function createDots(){
   dot158 = new Dots(500,720);
   dot159 = new Dots(525,720);
   dot160 = new Dots(550,720);
+  dot161 = new Dots(575,720);
+  dot162 = new Dots(600,720);
+  dot163 = new Dots(625,720);
+  dot164 = new Dots(650,720);
+  dot165 = new Dots(675,720);
+  dot166 = new Dots(700,720);
+  dot167 = new Dots(725,720);
+  dot168 = new Dots(725,720);
+  dot169 = new Dots(750,720);
+  dot170 = new Dots(775,720);
+  dot171 = new Dots(800,720);
+  dot172 = new Dots(825,720);
+  dot173 = new Dots(850,720);
+  dot174 = new Dots(900,720);
+  dot175 = new Dots(925,720);
+  dot176 = new Dots(950,720);
+  dot177 = new Dots(975,720);
+  dot178 = new Dots(1000,720);
+  dot179 = new Dots(1025,720);
+  //top left
+  dot180 = new Dots(375,300);
+  dot181 = new Dots(375,325);
+  dot182 = new Dots(375,350);
+  dot183 = new Dots(410,350);
+  dot184 = new Dots(410,375);
+  dot185 = new Dots(410,400);
+  dot186 = new Dots(410,425);
+  dot187 = new Dots(410,450);
+  dot188 = new Dots(450,400);
+  dot189 = new Dots(475,400); 
+  dot190 = new Dots(500,400);
+  dot191 = new Dots(525,400);
+  dot192 = new Dots(475,300);
+  dot193 = new Dots(475,325); 
+  dot194 = new Dots(475,350);
+  dot195 = new Dots(475,375);
+  dot196 = new Dots(725,300);
+  dot197 = new Dots(725,325); 
+  dot198 = new Dots(725,350);
+  dot199 = new Dots(725,375);
+  dot200 = new Dots(725,400);
+  dot201 = new Dots(700,400); 
+  dot202 = new Dots(750,400);
+  //dot203 = new Dots(775,400);
+  dot204 = new Dots(675,400); 
+  dot205 = new Dots(650,400);
+  dot206 = new Dots(625,400);
+  dot207 = new Dots(550,400);
+  dot208 = new Dots(575,400); 
+  dot209 = new Dots(825,300);
+  dot210 = new Dots(825,325);
+  dot211 = new Dots(825,350); 
+  dot212 = new Dots(790,350);
+  dot213 = new Dots(790,375);
+  dot214 = new Dots(790,400);
+  dot215 = new Dots(790,425); 
+  dot216 = new Dots(760,450);
+  dot217 = new Dots(760,475);
+  dot218 = new Dots(760,500);
+  dot219 = new Dots(760,525); 
+  dot220 = new Dots(760,550);
+  dot221 = new Dots(760,575);
+  dot222 = new Dots(760,575);
+  dot223 = new Dots(725,575); 
+  dot224 = new Dots(700,575);
+  dot225 = new Dots(675,575);
+  dot226 = new Dots(650,575);
+  dot227 = new Dots(625,575);
+  dot228 = new Dots(600,575);
+  dot229 = new Dots(575,575);
+  dot230 = new Dots(550,575);
+  dot231 = new Dots(525,575);
+  dot232 = new Dots(500,575);
 
-  dot124 = new Dots(900,720);
 
-  
+  dot233 = new Dots(430,450);
+  dot234 = new Dots(430,475);
+  dot235 = new Dots(430,500);
+  dot236 = new Dots(430,525);
+  dot237 = new Dots(430,550);
+  dot238 = new Dots(455,550);
+  dot239 = new Dots(480,550);
+
+  dot240 = new Dots(430,600);
+  dot241 = new Dots(430,625);
+  dot242 = new Dots(430,650);
+  dot243 = new Dots(430,675);
+  dot244 = new Dots(455,675);
+  dot245 = new Dots(480,675);
+  dot246 = new Dots(505,675);
+  dot247 = new Dots(530,675);
+  dot248 = new Dots(555,675);
+  dot249 = new Dots(555,700);
+
+  dot250 = new Dots(760,600);
+  dot251 = new Dots(760,625);
+  dot252 = new Dots(760,650);
+  dot253 = new Dots(760,675);
+  dot254 = new Dots(735,675);
+  dot255 = new Dots(710,675);
+  dot256 = new Dots(685,675);
+  dot257 = new Dots(660,675);
+  dot258 = new Dots(785,675);
+  dot259 = new Dots(810,675);
+  dot260 = new Dots(810,700);
+
+  dot261 = new Dots(660,700);
+
+  //Bottom - Top to Bottom - Line 1
+  dot262 = new Dots(175,740);
+  dot263 = new Dots(175,760);
+  dot264 = new Dots(200,760);
+  dot265 = new Dots(225,760);
+  dot266 = new Dots(250,760);
+  dot267 = new Dots(275,760);
+  dot268 = new Dots(275,780);
+  dot268 = new Dots(275,805);
+  dot269 = new Dots(275,835);
+  dot270 = new Dots(250,835);
+  dot271 = new Dots(225,835);
+  dot272 = new Dots(200,835);
+  dot273 = new Dots(175,835);
+  dot274 = new Dots(175,860);
+  dot275 = new Dots(175,885);
+
+  //Last Line (Left to right)
+  dot276 = new Dots(200,885);
+  dot277 = new Dots(225,885);
+  dot278 = new Dots(250,885);
+  dot279 = new Dots(275,885);
+  dot280 = new Dots(300,885);
+  dot281 = new Dots(325,885);
+  dot282 = new Dots(350,885);
+  dot283 = new Dots(375,885);
+  dot284 = new Dots(400,885);
+  dot285 = new Dots(425,885);
+  dot286 = new Dots(450,885);
+  dot287 = new Dots(475,885);
+  dot288 = new Dots(500,885);
+  dot289 = new Dots(525,885);
+  dot290 = new Dots(550,885);
+  dot291 = new Dots(575,885);
+  dot292 = new Dots(600,885);
+  dot293 = new Dots(625,885);
+  dot294 = new Dots(650,885);
+  dot295 = new Dots(675,885);
+  dot296 = new Dots(700,885);
+  dot297 = new Dots(725,885);
+  dot298 = new Dots(725,885);
+  dot299 = new Dots(750,885);
+  dot300 = new Dots(775,885);
+  dot301 = new Dots(800,885);
+  dot302 = new Dots(825,885);
+  dot303 = new Dots(850,885);
+  dot310 = new Dots(875,885);
+  dot304 = new Dots(900,885);
+  dot305 = new Dots(925,885);
+  dot306 = new Dots(950,885);
+  dot307 = new Dots(975,885);
+  dot308 = new Dots(1000,885);
+  dot309 = new Dots(1025,885);
+
+  //Bottom - Top to Bottom - Right most line
+  dot310 = new Dots(1025,740);
+  dot311 = new Dots(1025,760);
+  dot312 = new Dots(1000,760);
+  dot313 = new Dots(975,760);
+  dot314 = new Dots(950,760);
+  dot315 = new Dots(925,760);
+  dot316 = new Dots(925,780);
+  dot317 = new Dots(925,805);
+  dot318 = new Dots(925,835);
+  dot319 = new Dots(950,835);
+  dot320 = new Dots(925,835);
+  dot321 = new Dots(950,835);
+  dot322 = new Dots(975,835);
+  dot323 = new Dots(1000,835);
+  dot324 = new Dots(1025,835);
+  dot325 = new Dots(1025,860);
+
+  dot326 = new Dots(675,870);
+  dot327 = new Dots(675,850);
+  dot328 = new Dots(675,825);
+  dot329 = new Dots(700,825);
+  dot330 = new Dots(725,825);
+  dot331 = new Dots(725,800);
+  dot332 = new Dots(725,775);
+  dot333 = new Dots(725,750);
+
+  dot326 = new Dots(525,870);
+  dot327 = new Dots(525,850);
+  dot328 = new Dots(525,825);
+  dot329 = new Dots(500,825);
+  dot330 = new Dots(475,825);
+  dot331 = new Dots(475,800);
+  dot332 = new Dots(475,775);
+  dot333 = new Dots(475,750);
+
+
 }
+
 
 
 function heartVisible(){
